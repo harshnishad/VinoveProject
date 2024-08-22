@@ -14,10 +14,12 @@ step 3-> python tracker.py
 Git Command To Commit
 ```
 1.git clone https://github.com/harshnishad/VinoveProject.git
-2.git switch -c feature/add
-3.git brach
-4.git commit -"Commit by _Your Name"
-5.git push -u origin feature/add 
+2.cd VinoveProject
+3.git switch -c feature/add
+4.git branch
+5.git add .
+6.git commit -m "Commit by _Your Name"
+7.git push -u origin feature/add
 ```
 
 
