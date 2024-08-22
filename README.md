@@ -1,4 +1,4 @@
-echo '#Project Setup Instructions
+echo '#Project Setup Instructions For Desktop Agent Application
 
 
 step 1 ->For Frontend
