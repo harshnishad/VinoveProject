@@ -1,25 +1,29 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';  // Import Axios
 import './admin.css';
 import './client.css';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
   
   const [activeTime, setActiveTime] = useState(0);
   const [inactiveTime, setInactiveTime] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const [developData, setDevelopData] = useState([]);
+  const [inputTime, setInputTime] = useState(''); // State for form input
+  const [submissionStatus, setSubmissionStatus] = useState('');
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/')
-      .then(response => response.json())
-      .then(data => {
-        setDevelopData(data);
-        calculateTotalDuration(data);
+    axios.get('http://127.0.0.1:8000/')
+      .then(response => {
+        setDevelopData(response.data);
+        calculateTotalDuration(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setSubmissionStatus('Error fetching data.');
       });
   }, [developData]);
-
 
   const calculateTotalDuration = (data) => {
     let active = 0;
@@ -51,20 +55,28 @@ function App() {
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const indexOfLastItem = currentPage * 10;
+  const indexOfFirstItem = indexOfLastItem - 10;
   const currentItems = developData.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
- 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Add form submission logic here
+    axios.post('http://127.0.0.1:8000/screenshot', {
+      time: parseInt(inputTime, 10),
+    })
+    .then(response => {
+      setSubmissionStatus('Screenshot taken successfully!');
+      setInputTime(''); // Clear input field after submission
+    })
+    .catch(error => {
+      console.error('Error submitting data:', error);
+      setSubmissionStatus('Error taking screenshot.');
+    });
   };
 
   return (
@@ -77,20 +89,26 @@ function App() {
             <p>Active time: {formatTime(activeTime)}</p>
             <p>Inactive time: {formatTime(inactiveTime)}</p>
             <p>Week 29h 35m / Month 89h 03m</p>
-            
           </div>
         </div>
         <div className="app-usage">
           <form onSubmit={handleSubmit}>
             <div>
-              <h1>Time</h1>
-              <input type="number" />
+              <h1>Enter Time To Take ScreenShot</h1>
+              <input 
+                type="number" 
+                value={inputTime}
+                onChange={(e) => setInputTime(e.target.value)}
+              />
             </div>
             <div className='btn'>
               <button type="submit">Input</button>
             </div>
           </form>
+          {submissionStatus && <p>{submissionStatus}</p>}
           <h3>Latest Screenshots</h3>
+         
+          <img src= alt="Admin Dashboard Image" /> 
         </div>
       </div>
       <div className="develop">
@@ -112,7 +130,7 @@ function App() {
           ))}
         </div>
         <div className="pagination">
-          {Array(Math.ceil(developData.length / itemsPerPage)).fill(0).map((_, i) => (
+          {Array(Math.ceil(developData.length / 10)).fill(0).map((_, i) => (
             <button
               key={i}
               onClick={() => paginate(i + 1)}

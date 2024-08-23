@@ -8,3 +8,6 @@ class EmployeeDetail(BaseModel):
 
 class TimerState(BaseModel):
     timerRunning: bool   
+
+class ScreenShotTime(BaseModel):
+    time:int

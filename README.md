@@ -32,6 +32,9 @@ step 3-> python tracker.py
 ```
 
 
+<h1>Dependencies</h1>
+<p> pip install Pillow pyautogui</p
+
 
 
 
