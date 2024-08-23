@@ -108,7 +108,7 @@ function App() {
           {submissionStatus && <p>{submissionStatus}</p>}
           <h3>Latest Screenshots</h3>
          
-          <img src= alt="Admin Dashboard Image" /> 
+          <img src="" alt="Admin Dashboard Image" /> 
         </div>
       </div>
       <div className="develop">
