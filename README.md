@@ -1,4 +1,11 @@
-Project Setup Instructions
+<h1>Top Contributors</h1>
+<a href="https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=harshnishad/VinoveProject"/>
+</a>
+
+
+<h1>Project Setup Instructions</h1>
+
 ```
 step 1 ->For Frontend
 cd client
@@ -10,8 +17,10 @@ python -m uvicorn main:app --reload
 
 step 3-> python tracker.py
 
-```
-Git Command To Commit
+``` 
+
+<h1>Git Command To Commit</h1>
+
 ```
 1.git clone https://github.com/harshnishad/VinoveProject.git
 2.cd VinoveProject
@@ -21,6 +30,10 @@ Git Command To Commit
 6.git commit -m "Commit by _Your Name"
 7.git push -u origin feature/add
 ```
+
+
+
+
 
 
 
