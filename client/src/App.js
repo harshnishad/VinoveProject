@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './component/Home';
-import Client from './component/Client';
-import Admin from './component/Admin';
+import Client from './component/Roles/Client';
+import Admin from './component/Roles/Admin';
 // import './style.css';
 
 function App() {
