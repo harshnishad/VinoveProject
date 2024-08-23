@@ -33,7 +33,7 @@ step 3-> python tracker.py
 
 
 <h1>Dependencies</h1>
-<p> pip install Pillow pyautogui</p
+<p> <del>pip install Pillow pyautogui</del> Yet to Come </p
 
 
 
