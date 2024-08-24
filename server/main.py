@@ -7,7 +7,6 @@ from function.webTracker import track_usage
 from database.db import get_detail
 from model.model import (TimerState,ScreenShotTime)
 
-
 app = FastAPI()
 
 app.add_middleware(
@@ -40,8 +39,6 @@ async def update_timer_state(state: TimerState):
         asyncio.create_task(track_usage())
     else: print("stop")
     return {"status": "success"}
-
-
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
