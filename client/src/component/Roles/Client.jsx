@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './client.css';
+import './client.css';  // Make sure to rename the CSS file to match the component
 
 const Client = () => {
     const [timerRunning, setTimerRunning] = useState(false);
@@ -14,12 +14,12 @@ const Client = () => {
             .then(response => {
                 const data = response.data;
                 setDevelopData(data);
-                calculateTotalDuration(data); // Call the function here
+                calculateTotalDuration(data);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-    }, [developData]); // Dependency array should be empty to run only once
+    }, []);
 
     const calculateTotalDuration = (data) => {
         let active = 0;
@@ -44,8 +44,6 @@ const Client = () => {
         setTotalTime(active + inactive);
     };
 
-    
-
     const formatTime = (time) => {
         const hours = Math.floor(time / 3600);
         const minutes = Math.floor((time % 3600) / 60);
@@ -57,15 +55,13 @@ const Client = () => {
         const newTimerState = !timerRunning;
         setTimerRunning(newTimerState);
 
-        axios.post('http://127.0.0.1:8000/timer', {
-          timerRunning: newTimerState
-        })
-        .then(response => {
-          console.log('Timer state updated:', response.data);
-        })
-        .catch(error => {
-          console.error('Error updating timer state:', error);
-        });
+        axios.post('http://127.0.0.1:8000/timer', { timerRunning: newTimerState })
+            .then(response => {
+                console.log('Timer state updated:', response.data);
+            })
+            .catch(error => {
+                console.error('Error updating timer state:', error);
+            });
     };
 
     return (

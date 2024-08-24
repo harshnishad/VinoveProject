@@ -81,37 +81,40 @@ function App() {
 
   return (
     <div className="container">
-      <div className="stats">
-        <div className="total-time">
-          <div className="total-times">
-            <h3>Total Time Today</h3>
-            <h2>{formatTime(totalTime)}</h2>
-            <p>Active time: {formatTime(activeTime)}</p>
-            <p>Inactive time: {formatTime(inactiveTime)}</p>
-            <p>Week 29h 35m / Month 89h 03m</p>
-          </div>
-        </div>
-        <div className="app-usage">
-          <form onSubmit={handleSubmit}>
-            <div>
-              <h1>Enter Time To Take ScreenShot</h1>
-              <input 
-                type="number" 
-                value={inputTime}
-                onChange={(e) => setInputTime(e.target.value)}
-              />
-            </div>
-            <div className='btn'>
-              <button type="submit">Input</button>
-            </div>
-          </form>
-          {submissionStatus && <p>{submissionStatus}</p>}
-          <h3>Latest Screenshots</h3>
-         
-          <img src="" alt="Admin Dashboard Image" /> 
-        </div>
+      {/* Total Time Card */}
+      <div className="card total-time-card">
+        <h3>Total Time Today</h3>
+        <h2>{formatTime(totalTime)}</h2>
+        <p>Active time: {formatTime(activeTime)}</p>
+        <p>Inactive time: {formatTime(inactiveTime)}</p>
+        <p>Week 29h 35m / Month 89h 03m</p>
       </div>
-      <div className="develop">
+
+      {/* Screenshot Input Card */}
+      <div className="card screenshot-card">
+        <h3>Enter Time To Take Screenshot</h3>
+        <form onSubmit={handleSubmit}>
+          <input 
+            type="number" 
+            value={inputTime}
+            onChange={(e) => setInputTime(e.target.value)}
+            placeholder="Enter time in minutes"
+          />
+          <div className="btn">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        {submissionStatus && <p>{submissionStatus}</p>}
+      </div>
+
+      {/* Admin Dashboard Image Card */}
+      <div className="card admin-image-card">
+        <h3>Admin Dashboard Image</h3>
+        <img src="" alt="Admin Dashboard" /> 
+      </div>
+
+      {/* Employee Activity Status Card */}
+      <div className="card activity-status-card">
         <h3>Employee Activity Status</h3>
         <div className="table">
           <div className="header">
@@ -141,6 +144,8 @@ function App() {
           ))}
         </div>
       </div>
+
+      
     </div>
   );
 }
