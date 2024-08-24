@@ -5,7 +5,7 @@ import ctypes
 import sys
 
 # Constants
-INACTIVITY_TIMEOUT = 5  # seconds
+INACTIVITY_TIMEOUT = 30  # seconds
 
 # Global variable to keep track of last activity time
 last_activity_time = time.time()
