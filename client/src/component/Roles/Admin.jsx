@@ -106,9 +106,8 @@ function App() {
         </form>
         {submissionStatus && <p>{submissionStatus}</p>}
       </div>
-
-      {/* Admin Dashboard Image Card */}
-      <div className="card admin-image-card">
+        {/* Admin Dashboard Image Card */}
+        <div className="card admin-image-card">
         <h3>Admin Dashboard Image</h3>
         <img src="" alt="Admin Dashboard" /> 
       </div>
@@ -145,7 +144,7 @@ function App() {
         </div>
       </div>
 
-      
+    
     </div>
   );
 }

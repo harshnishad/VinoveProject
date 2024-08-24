@@ -8,6 +8,9 @@ const Client = () => {
     const [inactiveTime, setInactiveTime] = useState(0);
     const [totalTime, setTotalTime] = useState(0);
     const [developData, setDevelopData] = useState([]);
+    const [batteryLevel, setBatteryLevel] = useState(100);
+    const [charging, setCharging] = useState(false);
+    const [batteryWarning, setBatteryWarning] = useState(false);
 
     useEffect(() => {
         axios.get('http://127.0.0.1:8000/')
@@ -19,6 +22,27 @@ const Client = () => {
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
+        
+        const updateBatteryStatus = async () => {
+            try {
+                const battery = await navigator.getBattery();
+                setBatteryLevel(battery.level * 100);
+                setCharging(battery.charging);
+                setBatteryWarning(battery.level * 100 < 20);
+                
+                battery.addEventListener('levelchange', () => {
+                    setBatteryLevel(battery.level * 100);
+                    setBatteryWarning(battery.level * 100 < 20);
+                });
+                battery.addEventListener('chargingchange', () => {
+                    setCharging(battery.charging);
+                });
+            } catch (error) {
+                console.error('Error fetching battery status:', error);
+            }
+        };
+
+        updateBatteryStatus();
     }, []);
 
     const calculateTotalDuration = (data) => {
@@ -78,6 +102,14 @@ const Client = () => {
                     </button>
                 </div>
             </div>
+            <div className="battery-card">
+                    <h3>Battery Status</h3>
+                    <p>Battery Level: {batteryLevel}%</p>
+                    <b className={charging ? 'charging' : 'not-charging'}>
+                        {charging ? 'Charging' : 'Not Charging'}
+                    </b>
+                    {batteryWarning && <p className="warning">Low Battery! Please plug in your device.</p>}
+                </div>
         </div>
     );
 };
