@@ -5,3 +5,9 @@ class EmployeeDetail(BaseModel):
     start_time: str
     end_time: str
     duration: str
+
+class TimerState(BaseModel):
+    timerRunning: bool   
+
+class ScreenShotTime(BaseModel):
+    time:int

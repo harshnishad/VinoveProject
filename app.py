@@ -1,6 +1,6 @@
 import pygetwindow as gw
 
-def get_all_current_apps():
+def get_all():
     apps = []
 
     for window in gw.getAllWindows():
@@ -9,4 +9,4 @@ def get_all_current_apps():
     return apps
 
 
-print(get_all_current_apps())
+print(get_all())
