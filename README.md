@@ -15,7 +15,6 @@ step 2->For backend
 cd server
 python -m uvicorn main:app --reload
 
-step 3-> python tracker.py
 
 ``` 
 
@@ -32,8 +31,18 @@ step 3-> python tracker.py
 ```
 
 
-<h1>Dependencies</h1>
-<p> <del>pip install Pillow pyautogui</del> Yet to Come </p
+<h1>Dependencies To Install </h1>
+
+```
+1.motor
+2.pyautogui
+3.requests
+4.pymongo
+5.pygetwindow
+6.fastapi
+7.pydantic
+```
+
 
 
 
