@@ -41,7 +41,6 @@ python -m uvicorn main:app --reload
 5.pygetwindow
 6.fastapi
 7.pydantic
-8.jinja2
 ```
 
 
