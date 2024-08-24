@@ -34,6 +34,7 @@ python -m uvicorn main:app --reload
 <h1>Dependencies To Install </h1>
 
 ```
+
 1.motor
 2.pyautogui
 3.requests
@@ -41,6 +42,7 @@ python -m uvicorn main:app --reload
 5.pygetwindow
 6.fastapi
 7.pydantic
+
 ```
 
 
