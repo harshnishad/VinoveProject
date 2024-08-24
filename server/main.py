@@ -5,7 +5,8 @@ from pydantic import BaseModel
 from function.screenshot import screenshot
 from function.webTracker import track_usage
 from database.db import get_detail
-from model.model import (TimerState,ScreenShotTime)
+from model.model import TimerState, ScreenShotTime
+import subprocess
 
 app = FastAPI()
 
@@ -17,7 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+@app.on_event("startup")
+async def on_startup():
+    # Start the tracker.py script
+    subprocess.Popen(["python", "function/tracker.py"], shell=True)
 
 @app.get('/')
 async def get_root():
@@ -37,7 +41,8 @@ async def update_timer_state(state: TimerState):
         # Run track_usage in the background
         import asyncio
         asyncio.create_task(track_usage())
-    else: print("stop")
+    else:
+        print("stop")
     return {"status": "success"}
 
 if __name__ == "__main__":
