@@ -27,8 +27,8 @@ const BatteryStatus = () => {
 
     return (
         <div className="battery-card my-7">
-            <h3>Battery Status</h3>
-            <p>Battery Level: {batteryStatus.battery_level}%</p>
+            <h3 className='text-center'>Battery Status</h3>
+            <p >Battery Level: {batteryStatus.battery_level}%</p>
             <b className={batteryStatus.charging ? "text-green-500" : "text-red-500"}>
                 {batteryStatus.charging ? 'Charging' : 'Not Charging'}
             </b>

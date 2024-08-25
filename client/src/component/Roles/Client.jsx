@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TimeDisplay from "../Utils/TimeDisplay";
 import BatteryStatus from "../Utils/BatteryStatus"; // Ensure correct import path
-
+import NetworkShow from "../Utils/Network/NetworkShow";
 const Client = () => {
     const [timerRunning, setTimerRunning] = useState(false);
     const [activeTime, setActiveTime] = useState(0);
@@ -129,15 +129,8 @@ const Client = () => {
             
                 <div>
                     <TimeDisplay />
-                    <BatteryStatus status={batteryStatus} /> {/* Pass batteryStatus as a prop */}
-                    <div className="h-40 bg-blue-500 rounded-t-xl p-1 py-2">
-                        <h3 className="text-center text-white font-bold">Keep Notes</h3>
-                        <div className="text-white">
-                            <p className="font-serif">Continuous improvement</p>
-                            <p className="font-serif">is better than</p>
-                            <p className="font-serif">delayed perfection.</p>
-                        </div>
-                    </div>
+                    <NetworkShow />
+                    <BatteryStatus status={batteryStatus} /> 
                 </div>
             </div>
         </div>
