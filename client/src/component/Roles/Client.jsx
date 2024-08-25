@@ -11,8 +11,7 @@ const Client = () => {
     const [batteryStatus, setBatteryStatus] = useState(null); // Initialize as null
 
     useEffect(() => {
-        axios
-            .get("http://127.0.0.1:8000/")
+        axios.get("http://127.0.0.1:8000/")
             .then((response) => {
                 const data = response.data;
                 setDevelopData(data);

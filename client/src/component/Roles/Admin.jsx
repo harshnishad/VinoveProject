@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';  // Import Axios
 import './admin.css';
 import './client.css';
+import EmployeeStatusBox from '../Utils/EmployeeStatusBox';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,7 +13,7 @@ function App() {
   const [developData, setDevelopData] = useState([]);
   const [inputTime, setInputTime] = useState(''); // State for form input
   const [submissionStatus, setSubmissionStatus] = useState('');
-
+  const [status,setStatus] = useState(false);
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/')
       .then(response => {
@@ -23,7 +24,17 @@ function App() {
         console.error('Error fetching data:', error);
         setSubmissionStatus('Error fetching data.');
       });
-  }, [developData]);
+
+      axios.get('http://127.0.0.1:8000/timer')
+      .then(response => {
+        
+        setStatus(response.data.timerRunning)
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setSubmissionStatus('Error fetching data.');
+      });
+  }, [status,developData]);
 
   const calculateTotalDuration = (data) => {
     let active = 0;
@@ -95,7 +106,7 @@ function App() {
       </div>
 
       {/* Screenshot Input Card */}
-      <div className="card screenshot-card">
+      <div className="card screenshot-card text-center">
         <h3>Enter Time To Take Screenshot</h3>
         <form onSubmit={handleSubmit}>
           <input 
@@ -112,13 +123,14 @@ function App() {
       </div>
         {/* Admin Dashboard Image Card */}
         <div className="card admin-image-card">
-        <h3>Admin Dashboard Image</h3>
-        <img src="" alt="Admin Dashboard" /> 
+        <h3 className='text-center'>Employee Activity Status</h3>
+        <EmployeeStatusBox isActive={status} />
+         
       </div>
 
       {/* Employee Activity Status Card */}
       <div className="card activity-status-card">
-        <h3>Employee Activity Status</h3>
+        <h3 className='text-center'>Activity Status</h3>
         <div className="table">
           <div className="header">
             <div className="cell">Start Time</div>

@@ -8,6 +8,7 @@ from database.db import get_detail
 from model.model import TimerState, ScreenShotTime
 from function.battery import get_battery_status  # Import the battery status function
 import subprocess
+timer_state = {"timerRunning": False}
 
 app = FastAPI()
 
@@ -35,8 +36,12 @@ async def read_screenshot(state: ScreenShotTime):
     asyncio.create_task(screenshot(state.time))
     return {"message": "Screenshot taken", "time": state.time}
 
+
+an = False; 
 @app.post('/timer')
 async def update_timer_state(state: TimerState):
+  
+    timer_state["timerRunning"] = state.timerRunning
     print(state.timerRunning)
     if state.timerRunning:
         # Run track_usage in the background
@@ -46,9 +51,16 @@ async def update_timer_state(state: TimerState):
         print("stop")
     return {"status": "success"}
 
+@app.get('/timer')
+async def employee_status():
+    return {"timerRunning": timer_state["timerRunning"]}
+
+
 @app.get('/battery_status')
 async def battery_status():
     return get_battery_status()
+
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
