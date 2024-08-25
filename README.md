@@ -100,7 +100,7 @@ pip install "all dependencies"
 python -m uvicorn main:app --reload
 
 ```
-<h2 style="color:blue;"> Always  start server first <h2> 
+<h2> ALWAYS STARTS SERVER FIRST <h2> 
 
   
 <h1>Dependencies To Install </h1>
