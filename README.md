@@ -96,7 +96,7 @@ step 3->For backend
 
 cd server
 pip install "all dependencies"
-python -m uvicorn main:app --reload
+python main.py
 
 ```
 <b>
