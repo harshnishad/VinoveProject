@@ -108,9 +108,9 @@ python -m uvicorn main:app --reload
 </b>
   
 <h1>Dependencies To Install </h1>
+<h3>Backent Dependencies</h3>
 
 ```
-
 1.motor
 2.pyautogui
 3.requests
@@ -118,11 +118,14 @@ python -m uvicorn main:app --reload
 5.pygetwindow
 6.fastapi
 7.pydantic
-
 ```
 
+<h3>Frontend Dependencies</h3>
 
-
+```
+1.axios
+2.react-router-dom
+```
 
 
 
