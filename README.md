@@ -56,7 +56,6 @@
 
 <h3>7. System-level Tools</h3>
 <ul>
-    <li><strong>Task Scheduler/Startup Script:</strong> To ensure the agent starts automatically when the system boots and prevents multiple instances from running.</li>
     <li><strong>Time Zone Management:</strong> Utilizing Python's <code>tzlocal</code> or <code>pytz</code> libraries for detecting and managing time zone changes.</li>
 </ul>
 
