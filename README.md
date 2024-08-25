@@ -65,7 +65,7 @@
     <li><strong>Logging:</strong> Using Python's <code>logging</code> module for error handling, activity tracking, and debugging.</li>
 </ul>
 
-<h3>9. Deployment & Packaging</h3>
+<h3>9. Deployment and Packaging</h3>
 <ul>
     <li><code>PyInstaller</code>: To package the Python script as a standalone executable that can run on users' desktops without requiring them to install Python.</li>
 </ul>
@@ -81,11 +81,11 @@
 <h1>Project Setup Instructions</h1>
 
 ```
-step 1 ->For Frontend
+step 1 -> For Frontend
 cd client
 npm start
 
-step 2->For backend
+step 2-> For backend
 cd server
 python -m uvicorn main:app --reload
 
@@ -102,6 +102,8 @@ python -m uvicorn main:app --reload
 5.git add .
 6.git commit -m "Commit by _Your Name"
 7.git push -u origin feature/add
+
+
 ```
 
 
@@ -109,13 +111,13 @@ python -m uvicorn main:app --reload
 
 ```
 
-1.motor
-2.pyautogui
-3.requests
-4.pymongo
-5.pygetwindow
-6.fastapi
-7.pydantic
+1. motor
+2. pyautogui
+3. requests
+4. pymongo
+5. pygetwindow
+6. fastapi
+7. pydantic
 
 ```
 
