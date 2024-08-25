@@ -14,18 +14,18 @@ last_activity_time = time.time()
 def on_move(x, y):
     global last_activity_time
     last_activity_time = time.time()
-    print(f"Mouse moved to ({x}, {y})")
+    #print(f"Mouse moved to ({x}, {y})")
 
 def on_click(x, y, button, pressed):
     global last_activity_time
     if pressed:
         last_activity_time = time.time()
-        print(f"Mouse clicked at ({x}, {y}) with {button}")
+       # print(f"Mouse clicked at ({x}, {y}) with {button}")
 
 def on_scroll(x, y, dx, dy):
     global last_activity_time
     last_activity_time = time.time()
-    print(f"Mouse scrolled at ({x}, {y}) with delta ({dx}, {dy})")
+    #print(f"Mouse scrolled at ({x}, {y}) with delta ({dx}, {dy})")
 
 def on_press(key):
     global last_activity_time

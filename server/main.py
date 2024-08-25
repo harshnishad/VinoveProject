@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from function.screenshot import screenshot
+from function.screenshot import capture_screenshot
 from function.webTracker import track_usage
 from database.db import get_detail
 from model.model import TimerState, ScreenShotTime
@@ -34,7 +34,7 @@ async def get_root():
 @app.post('/screenshot')
 async def read_screenshot(state: ScreenShotTime):
     import asyncio
-    asyncio.create_task(screenshot(state.time))
+    asyncio.create_task(capture_screenshot(state.time))
     return {"message": "Screenshot taken", "time": state.time}
 
 @app.post('/screenshot-now')
