@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TimeDisplay from "../TimeDisplay";
-import BatteryStatus from "../BatteryStatus"; // Ensure correct import path
+import TimeDisplay from "../Utils/TimeDisplay";
+import BatteryStatus from "../Utils/BatteryStatus"; // Ensure correct import path
 
 const Client = () => {
     const [timerRunning, setTimerRunning] = useState(false);
@@ -55,7 +55,12 @@ const Client = () => {
                 item.app_name === "Search"
             ) {
                 inactive += durationInSeconds;
-            } else {
+            }
+            
+            else if(item.app_name==="Inactivity Warning"){
+                inactive+=30;
+            } 
+            else {
                 active += durationInSeconds;
             }
         });
@@ -112,12 +117,14 @@ const Client = () => {
 
                     {/* Total Times Section */}
                     <div className="flex items-center justify-center w-full max-w-md mt-8">
-                        <button
-                            onClick={handleTimerToggle}
-                            className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
-                        >
-                            {timerRunning ? "Stop" : "Start"}
-                        </button>
+                        {!timerRunning && (
+                            <button
+                                onClick={handleTimerToggle}
+                                className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300"
+                            >
+                                {timerRunning ? "Stop" : "Go Live"}
+                            </button>
+                        )}
                     </div>
                 </div>
             

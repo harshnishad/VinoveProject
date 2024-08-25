@@ -39,7 +39,11 @@ function App() {
       const durationInSeconds = hours * 3600 + minutes * 60 + seconds;
       if (item.app_name === 'Unknown' || item.app_name === 'Start' || item.app_name === 'Search') {
         inactive += durationInSeconds;
-      } else {
+      }else if(item.app_name==="Inactivity Warning"){
+        inactive+=30;
+        active-=30;
+      }  
+      else {
         active += durationInSeconds;
       }
     });
@@ -87,7 +91,7 @@ function App() {
         <h2>{formatTime(totalTime)}</h2>
         <p>Active time: {formatTime(activeTime)}</p>
         <p>Inactive time: {formatTime(inactiveTime)}</p>
-        <p>Week 29h 35m / Month 89h 03m</p>
+        
       </div>
 
       {/* Screenshot Input Card */}
