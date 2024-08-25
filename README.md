@@ -1,5 +1,10 @@
-<h1>Desktop Agent Application</h1>
+<h1>Top Contributors</h1>
+<a href="https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=harshnishad/VinoveProject"/>
+</a>
 
+
+<h1>Desktop Agent Application</h1>
 
 <h2>Technologies Used</h2>
 
@@ -71,11 +76,6 @@
     <li><strong>Queueing:</strong> To handle data that couldn’t be uploaded immediately, ensuring it's uploaded once the network is restored.</li>
 </ul>
 
-
-<h1>Top Contributors</h1>
-<a href="https://github.com/Tanu-N-Prabhu/Python/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=harshnishad/VinoveProject"/>
-</a>
 
 
 <h1>Project Setup Instructions</h1>
