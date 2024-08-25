@@ -6,6 +6,7 @@ from function.screenshot import screenshot
 from function.webTracker import track_usage
 from database.db import get_detail
 from model.model import TimerState, ScreenShotTime
+from function.battery import get_battery_status  # Import the battery status function
 import subprocess
 
 app = FastAPI()
@@ -44,6 +45,10 @@ async def update_timer_state(state: TimerState):
     else:
         print("stop")
     return {"status": "success"}
+
+@app.get('/battery_status')
+async def battery_status():
+    return get_battery_status()
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)

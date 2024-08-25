@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./client.css"; // Make sure to rename the CSS file to match the component
-import TimeDisplay from "../TimeDisplay"
+import TimeDisplay from "../TimeDisplay";
+import BatteryStatus from "../BatteryStatus"; // Ensure correct import path
+
 const Client = () => {
     const [timerRunning, setTimerRunning] = useState(false);
     const [activeTime, setActiveTime] = useState(0);
     const [inactiveTime, setInactiveTime] = useState(0);
-    const [totalTime, setTotalTime] = useState(0);
     const [developData, setDevelopData] = useState([]);
-    const [batteryLevel, setBatteryLevel] = useState(100);
-    const [charging, setCharging] = useState(false);
-    const [batteryWarning, setBatteryWarning] = useState(false);
+    const [batteryStatus, setBatteryStatus] = useState(null); // Initialize as null
 
     useEffect(() => {
         axios
@@ -24,26 +22,19 @@ const Client = () => {
                 console.error("Error fetching data:", error);
             });
 
-        const updateBatteryStatus = async () => {
+        const fetchBatteryStatus = async () => {
             try {
-                const battery = await navigator.getBattery();
-                setBatteryLevel(battery.level * 100);
-                setCharging(battery.charging);
-                setBatteryWarning(battery.level * 100 < 20);
-
-                battery.addEventListener("levelchange", () => {
-                    setBatteryLevel(battery.level * 100);
-                    setBatteryWarning(battery.level * 100 < 20);
-                });
-                battery.addEventListener("chargingchange", () => {
-                    setCharging(battery.charging);
-                });
-            } catch (error) {
-                console.error("Error fetching battery status:", error);
+                const response = await axios.get('http://127.0.0.1:8000/battery_status');
+                setBatteryStatus(response.data);
+            } catch (err) {
+                console.error('Error fetching battery status:', err);
             }
         };
-        updateBatteryStatus();
 
+        fetchBatteryStatus();
+        const intervalId = setInterval(fetchBatteryStatus, 60000); // Fetch every minute
+
+        return () => clearInterval(intervalId);
     }, [developData]);
 
     const calculateTotalDuration = (data) => {
@@ -70,7 +61,6 @@ const Client = () => {
         });
         setInactiveTime(inactive);
         setActiveTime(active);
-        setTotalTime(active + inactive);
     };
 
     const formatTime = (time) => {
@@ -100,13 +90,11 @@ const Client = () => {
         <div className="con">
             <div className="flex items-center justify-center min-h-20 rounded-xl bg-gray-300 p-4 gap-8">
                 <div>
-                
                     {/* Active Time Section */}
                     <div className="flex flex-col items-center justify-center bg-blue-300 p-5 my-2 rounded-lg shadow-md w-full max-w-md">
                         <h1 className="text-2xl font-semibold text-gray-800 mb-4">
                             Active Time:
                         </h1>
-
                         <div className="text-5xl font-extrabold text-white bg-blue-500 p-8 rounded-lg shadow-lg">
                             {formatTime(activeTime)}
                         </div>
@@ -134,37 +122,18 @@ const Client = () => {
                 </div>
             
                 <div>
-                <TimeDisplay />
-                    <div className="battery-card my-7">
-                        <h3>Battery Status</h3>
-                        <p>Battery Level: {batteryLevel}%</p>
-                        <b className={charging ? "charging" : "not-charging"}>
-                            {charging ? "Charging" : "Not Charging"}
-                        </b>
-                        {batteryWarning && (
-                            <p className="warning">Low Battery! Please plug in your device.</p>
-                        )}
-                    </div>
-                    <div className="h-40 bg-blue-500 rounded-t-xl p-1 py-2 ">
+                    <TimeDisplay />
+                    <BatteryStatus status={batteryStatus} /> {/* Pass batteryStatus as a prop */}
+                    <div className="h-40 bg-blue-500 rounded-t-xl p-1 py-2">
                         <h3 className="text-center text-white font-bold">Keep Notes</h3>
-                       <div className="text-white">
-                       <p className="font-serif">
-                        Continuous improvement 
-                        </p>
-                        <p className="font-serif">
-                        is better than
-                        </p>
-                        <p className="font-serif"> delayed perfection.</p>
-                       </div>
+                        <div className="text-white">
+                            <p className="font-serif">Continuous improvement</p>
+                            <p className="font-serif">is better than</p>
+                            <p className="font-serif">delayed perfection.</p>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
- 
-
-           
-
         </div>
     );
 };
