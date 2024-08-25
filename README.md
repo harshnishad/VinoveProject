@@ -56,7 +56,6 @@
 <h3>6. Encryption & Security</h3>
 <ul>
     <li><code>PyCryptodome</code>: A library for implementing encryption to ensure that data is securely uploaded to S3.</li>
-    <li><strong>SSL/TLS:</strong> To secure data transmission between the agent and web services.</li>
 </ul>
 
 <h3>7. System-level Tools</h3>
