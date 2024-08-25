@@ -6,14 +6,14 @@ import EmployeeStatusBox from '../Utils/EmployeeStatusBox';
 
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
-  
   const [activeTime, setActiveTime] = useState(0);
   const [inactiveTime, setInactiveTime] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const [developData, setDevelopData] = useState([]);
   const [inputTime, setInputTime] = useState(''); // State for form input
   const [submissionStatus, setSubmissionStatus] = useState('');
-  const [status,setStatus] = useState(false);
+  const [status, setStatus] = useState(false);
+
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/')
       .then(response => {
@@ -25,16 +25,15 @@ function App() {
         setSubmissionStatus('Error fetching data.');
       });
 
-      axios.get('http://127.0.0.1:8000/timer')
+    axios.get('http://127.0.0.1:8000/timer')
       .then(response => {
-        
-        setStatus(response.data.timerRunning)
+        setStatus(response.data.timerRunning);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
         setSubmissionStatus('Error fetching data.');
       });
-  }, [status,developData]);
+  }, [status, developData]);
 
   const calculateTotalDuration = (data) => {
     let active = 0;
@@ -50,11 +49,10 @@ function App() {
       const durationInSeconds = hours * 3600 + minutes * 60 + seconds;
       if (item.app_name === 'Unknown' || item.app_name === 'Start' || item.app_name === 'Search') {
         inactive += durationInSeconds;
-      }else if(item.app_name==="Inactivity Warning"){
-        inactive+=30;
-        active-=30;
-      }  
-      else {
+      } else if (item.app_name === "Inactivity Warning") {
+        inactive += 30;
+        active -= 30;
+      } else {
         active += durationInSeconds;
       }
     });
@@ -78,20 +76,15 @@ function App() {
     setCurrentPage(pageNumber);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    axios.post('http://127.0.0.1:8000/screenshot', {
-      time: parseInt(inputTime, 10),
-    })
-    .then(response => {
-      setSubmissionStatus('Screenshot taken successfully!');
-      setInputTime(''); // Clear input field after submission
-    })
-    .catch(error => {
-      console.error('Error submitting data:', error);
-      setSubmissionStatus('Error taking screenshot.');
-    });
+  const handleScreenshotClick = () => {
+    axios.post('http://127.0.0.1:8000/screenshot-now') // Trigger screenshot
+      .then(response => {
+        setSubmissionStatus('Screenshot taken and uploaded successfully!');
+      })
+      .catch(error => {
+        console.error('Error taking screenshot:', error);
+        setSubmissionStatus('Error taking screenshot.');
+      });
   };
 
   return (
@@ -102,30 +95,19 @@ function App() {
         <h2>{formatTime(totalTime)}</h2>
         <p>Active time: {formatTime(activeTime)}</p>
         <p>Inactive time: {formatTime(inactiveTime)}</p>
-        
       </div>
 
-      {/* Screenshot Input Card */}
-      <div className="card screenshot-card text-center">
-        <h3>Enter Time To Take Screenshot</h3>
-        <form onSubmit={handleSubmit}>
-          <input 
-            type="number" 
-            value={inputTime}
-            onChange={(e) => setInputTime(e.target.value)}
-            placeholder="Enter time in minutes"
-          />
-          <div className="btn">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+      {/* Screenshot Button Card */}
+      <div className="card screenshot-button-card text-center">
+        <h3>Take Screenshot Now</h3>
+        <button onClick={handleScreenshotClick}>Take Screenshot</button>
         {submissionStatus && <p>{submissionStatus}</p>}
       </div>
-        {/* Admin Dashboard Image Card */}
-        <div className="card admin-image-card">
+
+      {/* Admin Dashboard Image Card */}
+      <div className="card admin-image-card">
         <h3 className='text-center'>Employee Activity Status</h3>
         <EmployeeStatusBox isActive={status} />
-         
       </div>
 
       {/* Employee Activity Status Card */}
@@ -159,8 +141,6 @@ function App() {
           ))}
         </div>
       </div>
-
-    
     </div>
   );
 }

@@ -8,6 +8,7 @@ import base64  # Importing the base64 module
 from pymongo import MongoClient
 from PIL import Image
 
+
 # MongoDB connection settings
 MONGO_URI = 'mongodb://localhost:27017/'
 DATABASE_NAME = 'screenshot_db'
