@@ -6,7 +6,7 @@ from function.screenshot import capture_screenshot
 from function.webTracker import track_usage
 from database.db import get_detail
 from model.model import TimerState, ScreenShotTime
-from function.battery import get_battery_status  # Import the battery status function
+from function.battery import get_battery_status 
 import subprocess
 
 timer_state = {"timerRunning": False}

@@ -5,9 +5,14 @@
   <img src="https://contrib.rocks/image?repo=harshnishad/VinoveProject"/>
 </a>
 
+<h2> Application Report File</h2>
+<li><strong>Report File:</strong></li>
 
+<h2>Application Working Vedio</h2>
+<li><strong>Working Vedio:</strong></li>
 
 <h2>Technologies Used</h2>
+
 
 <h3>1. Python</h3>
 <ul>
@@ -51,7 +56,6 @@
 <h3>6. Encryption & Security</h3>
 <ul>
     <li><code>PyCryptodome</code>: A library for implementing encryption to ensure that data is securely uploaded to S3.</li>
-    <li><strong>SSL/TLS:</strong> To secure data transmission between the agent and web services.</li>
 </ul>
 
 <h3>7. System-level Tools</h3>
@@ -77,38 +81,35 @@
 </ul>
 
 
-
-<h1>Project Setup Instructions</h1>
+<h1> Important Instructions To Run </h1>
 
 ```
-step 1 ->For Frontend
+Step 1- git clone https://github.com/harshnishad/VinoveProject.git
+
+step 2 ->For Frontend
+
 cd client
+npm i
 npm start
 
-step 2->For backend
+step 3->For backend
+
 cd server
+pip install "all dependencies"
 python -m uvicorn main:app --reload
 
-
-``` 
-
-<h1>Git Command To Commit</h1>
-
 ```
-1.git clone https://github.com/harshnishad/VinoveProject.git
-2.cd VinoveProject
-3.git switch feature/add
-4.git branch
-5.git add .
-6.git commit -m "Commit by _Your Name"
-7.git push -u origin feature/add
-```
-
-
+<b>
+<h2> ALWAYS STARTS SERVER FIRST <h2> 
+<h3> ID , PASSWORD -> </h3>
+<h4> id- client , pass- 1111</h4>
+<h4> id- admin  , pass- 0000</h4>
+</b>
+  
 <h1>Dependencies To Install </h1>
+<h3>Backent Dependencies</h3>
 
 ```
-
 1.motor
 2.pyautogui
 3.requests
@@ -116,11 +117,14 @@ python -m uvicorn main:app --reload
 5.pygetwindow
 6.fastapi
 7.pydantic
-
 ```
 
+<h3>Frontend Dependencies</h3>
 
-
+```
+1.axios
+2.react-router-dom
+```
 
 
 
