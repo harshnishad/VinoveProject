@@ -82,25 +82,27 @@
 </ul>
 
 
-
-<h1>Project Setup Instructions</h1>
+<h1> Important Instructions To Run </h1>
 
 ```
-step 1 ->For Frontend
+Step 1- git clone https://github.com/harshnishad/VinoveProject.git
+
+step 2 ->For Frontend
 
 cd client
 npm i
 npm start
 
-step 2->For backend
+step 3->For backend
 
 cd server
 pip install "all dependencies"
 python -m uvicorn main:app --reload
 
+```
+<h2> Always  start server first <h2> 
 
-``` 
-
+  
 <h1>Dependencies To Install </h1>
 
 ```
