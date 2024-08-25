@@ -100,8 +100,12 @@ pip install "all dependencies"
 python -m uvicorn main:app --reload
 
 ```
+<b>
 <h2> ALWAYS STARTS SERVER FIRST <h2> 
-
+<h3> ID , PASSWORD -> </h3>
+<h4> id- client , pass- 1111</h4>
+<h4> id- admin  , pass- 0000</h4>
+</b>
   
 <h1>Dependencies To Install </h1>
 
