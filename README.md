@@ -78,7 +78,7 @@
 </ul>
 
 
-<h2> Application Key Features </h2>
+<h1> Application Key Features </h1>
 <li><strong>Different dashboards for client and admin</strong></li>
 <li><strong>Manage user total active time</strong></li>
 <li><strong>Manage user total inactive time</strong></li>
