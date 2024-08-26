@@ -126,7 +126,15 @@ python -m uvicorn main:app --reload
 2.react-router-dom
 ```
 
+## Repository Information
 
+### Commit History
 
+This repository includes a complete commit history that reflects the development process of the project. All changes and updates made during the development phase are documented in the commit history, providing a detailed record of the project's evolution.
 
+To view the commit history:
+1. Navigate to the [Commits](https://github.com/harshnishad/VinoveProject/commits) section of this repository on GitHub.
+2. Browse through the commits to see the changes made over time.
+
+For a more comprehensive understanding of the development process, you can review the commit messages and associated changes.
 
