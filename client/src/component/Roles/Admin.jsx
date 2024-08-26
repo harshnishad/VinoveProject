@@ -76,10 +76,12 @@ function App() {
     setCurrentPage(pageNumber);
   };
 
+  // Updated handleScreenshotClick function
   const handleScreenshotClick = () => {
     axios.post('http://127.0.0.1:8000/screenshot-now') // Trigger screenshot
       .then(response => {
         setSubmissionStatus('Screenshot taken and uploaded successfully!');
+        console.log('Screenshot response:', response.data); // Debug log
       })
       .catch(error => {
         console.error('Error taking screenshot:', error);

@@ -37,6 +37,13 @@ async def read_screenshot(state: ScreenShotTime):
     asyncio.create_task(capture_screenshot(state.time))
     return {"message": "Screenshot taken", "time": state.time}
 
+# New screenshot function
+async def screenshot(interval):
+    import asyncio
+    await capture_screenshot(interval)
+    # Upload logic can be added here
+    # For example, upload the screenshot to S3 or other cloud storage
+
 @app.post('/screenshot-now')
 async def take_screenshot_now():
     import asyncio
