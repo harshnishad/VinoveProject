@@ -9,7 +9,7 @@
 <li><strong>Report File:</strong></li>
 
 <h2>Application Working Vedio</h2>
-<li><strong>Working Vedio:</strong></li>
+<li><strong>Working Vedio: https://drive.google.com/file/d/1ntOJAYK0_ffjGvIAPBc25CTMfzXwVM7d/view?usp=sharing </strong></li>
 
 <h2>Technologies Used</h2>
 
@@ -96,7 +96,7 @@ step 3->For backend
 
 cd server
 pip install "all dependencies"
-python -m uvicorn main:app --reload
+python main.py
 
 ```
 <b>
