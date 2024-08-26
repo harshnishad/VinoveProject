@@ -2,7 +2,7 @@ from pynput import mouse, keyboard
 import time
 import threading
 import ctypes
-import sys
+
 
 # Constants
 INACTIVITY_TIMEOUT = 30  # seconds
