@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';  // Import Axios
+import axios from 'axios';  
 import './admin.css';
 import './client.css';
 import EmployeeStatusBox from '../Utils/EmployeeStatusBox';
@@ -10,7 +10,7 @@ function App() {
   const [inactiveTime, setInactiveTime] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const [developData, setDevelopData] = useState([]);
-  const [inputTime, setInputTime] = useState(''); // State for form input
+  const [inputTime, setInputTime] = useState(''); 
   const [submissionStatus, setSubmissionStatus] = useState('');
   const [status, setStatus] = useState(false);
 
