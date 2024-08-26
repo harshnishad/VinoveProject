@@ -81,6 +81,22 @@
 </ul>
 
 
+<h1> Application Key Features </h1>
+<li><strong>Different dashboards for client and admin</strong></li>
+<li><strong>Manage user total active time</strong></li>
+<li><strong>Manage user total inactive time</strong></li>
+<li><strong>Take screenshot manually and automatically </strong></li>
+<li><strong>Store screenshots in AWS S3 bucket </strong></li>
+<li><strong>Locally store screenshots in queue if network related problem arise</strong></li>
+<li><strong>Track Mouse and Keyboard Movements</strong></li>
+<li><strong>Gives warning if user become inactive for more than 30 seconds</strong></li>
+<li><strong>Track and store different application usage of client on device and showcase on admin portal  </strong></li>
+<li><strong>Track battery status</strong></li>
+<li><strong>Show current time according to location </strong></li>
+<li><strong>And some more...... </strong></li>
+
+
+
 <h1> Important Instructions To Run </h1>
 
 ```
