@@ -17,14 +17,6 @@
 
 <h2>Application Working Vedio</h2>
 <li><strong>Working Vedio: https://drive.google.com/file/d/1ntOJAYK0_ffjGvIAPBc25CTMfzXwVM7d/view?usp=sharing </strong></li>
-=======
-<h2> Application Report File</h2>
-<li><strong>Report File: https://docs.google.com/document/d/1M9ZVynUSeSD-kLnc4_Iq4Gr1ANgewP6i/edit?usp=sharing&ouid=109225541696855840474&rtpof=true&sd=true</strong></li>
-
-<h2>Application Working Vedio</h2>
-<li><strong>Working Vedio: https://drive.google.com/file/d/1ntOJAYK0_ffjGvIAPBc25CTMfzXwVM7d/view?usp=sharing </strong></li>
-
->>>>>>> a23bfc3cc69738c2a1ba00b3974c7c831cacfdd6
 
 <h2>Technologies Used</h2>
 
