@@ -5,7 +5,7 @@
   <img src="https://contrib.rocks/image?repo=harshnishad/VinoveProject"/>
 </a>
 
-<<<<<<< HEAD
+
 <h2>Team Members:</h2>
 <li><strong>KRISH GUPTA</strong></li>
 <li><strong>HARSH NISHAD</strong></li>
