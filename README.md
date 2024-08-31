@@ -5,6 +5,17 @@
   <img src="https://contrib.rocks/image?repo=harshnishad/VinoveProject"/>
 </a>
 
+<h2>Team Members:</h2>
+<li><strong>KRISH GUPTA</strong></li>
+<li><strong>HARSH NISHAD</strong></li>
+<li><strong>YUGDEEP PARIHAR</strong></li>
+<li><strong>ARYAN RAJPUT</strong></li>
+
+<h2> Application Report File</h2>
+<li><strong>Report File: https://docs.google.com/document/d/15cm1dQlnkONjgso4lhXPmMjbdbIx03XL/edit?usp=sharing&ouid=109225541696855840474&rtpof=true&sd=true</strong></li>
+
+<h2>Application Working Vedio</h2>
+<li><strong>Working Vedio: https://drive.google.com/file/d/1ntOJAYK0_ffjGvIAPBc25CTMfzXwVM7d/view?usp=sharing </strong></li>
 
 <h2>Technologies Used</h2>
 
