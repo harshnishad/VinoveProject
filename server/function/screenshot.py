@@ -16,7 +16,7 @@ COLLECTION_NAME = 'screenshots'
 
 # Local queue directory
 QUEUE_DIR = 'image_queue'
-LAMBDA_URL = "https://xaaezpqn9b.execute-api.us-east-1.amazonaws.com/prod/upload"
+LAMBDA_URL = ""
 
 # Connect to MongoDB
 client = MongoClient(MONGO_URI)
