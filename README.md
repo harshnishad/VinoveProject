@@ -18,8 +18,6 @@
 <h2>Application Working Video</h2>
 <li><strong>Working Video: https://drive.google.com/file/d/1fF3iS2wmMo0h9PiDb5kE_dpGXMuZ7fnp/view?usp=drive_link </strong></li>
 
-<h2>Application ZIP File</h2>
-<li><strong>ZIP File: https://drive.google.com/file/d/1TOWu6avpwRvhe8WpIOGj8pJdeNvPiaxj/view?usp=sharing</strong></li>
 
 
 <h2>Technologies Used</h2>
