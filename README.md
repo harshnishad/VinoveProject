@@ -16,7 +16,7 @@
 <li><strong>Report File: https://docs.google.com/document/d/15cm1dQlnkONjgso4lhXPmMjbdbIx03XL/edit?usp=sharing&ouid=109225541696855840474&rtpof=true&sd=true</strong></li>
 
 <h2>Application Working Video</h2>
-<li><strong>Working Video: https://drive.google.com/file/d/1ntOJAYK0_ffjGvIAPBc25CTMfzXwVM7d/view?usp=sharing </strong></li>
+<li><strong>Working Video: https://drive.google.com/file/d/1fF3iS2wmMo0h9PiDb5kE_dpGXMuZ7fnp/view?usp=drive_link </strong></li>
 
 <h2>Application ZIP File</h2>
 <li><strong>ZIP File: https://drive.google.com/file/d/1TOWu6avpwRvhe8WpIOGj8pJdeNvPiaxj/view?usp=sharing</strong></li>
@@ -35,8 +35,6 @@
             <li><code>asyncio</code>: For handling asynchronous tasks like periodic screenshot capture and data uploads.</li>
             <li><code>requests</code>: For sending HTTP requests to upload data to cloud services.</li>
             <li><code>pymongo</code>: For interaction with MongoDB if local storage is required before upload.</li>
-            <li><code>PIL</code> (Pillow): For image processing tasks like blurring screenshots.</li>
-            <li><code>watchdog</code>: For monitoring file system changes or configuration updates.</li>
         </ul>
     </li>
 </ul>
@@ -76,16 +74,10 @@
 
 <h3>8. Testing and Debugging Tools</h3>
 <ul>
-    <li><code>Pytest</code>: For unit testing the different components of the application.</li>
-    <li><strong>Logging:</strong> Using Python's <code>logging</code> module for error handling, activity tracking, and debugging.</li>
+    <li><code>Postman</code>: For testing and validating APIs through automated requests, response checks, and collaboration on API development.</li>
 </ul>
 
-<h3>9. Deployment & Packaging</h3>
-<ul>
-    <li><code>PyInstaller</code>: To package the Python script as a standalone executable that can run on users' desktops without requiring them to install Python.</li>
-</ul>
-
-<h3>10. Error Handling</h3>
+<h3>9. Error Handling</h3>
 <ul>
     <li><strong>Retry Mechanisms:</strong> For retrying failed uploads due to connectivity issues.</li>
     <li><strong>Queueing:</strong> To handle data that couldn’t be uploaded immediately, ensuring it's uploaded once the network is restored.</li>
